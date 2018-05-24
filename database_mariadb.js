@@ -4,5 +4,5 @@ var nodeMaria = require('node-mariadb');
 var connection = nodeMaria.createConnection({
   driverType: nodeMaria.DRIVER_TYPE_HANDLER_SOCKET,
   host:'localhost',
-  port:9998
+  port:3306
 });
