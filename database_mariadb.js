@@ -20,7 +20,7 @@ connection.on('error', function(error){
 
 connection.on('connect', function(){
   console.log('db connected...');
-  connection.query('')
+  connection.query('select * from mfuser;')
     .on('result', function(res){
       res.on('row', function(row){
         console.log('result row -->' + row);
