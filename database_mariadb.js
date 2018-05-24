@@ -1,5 +1,5 @@
 var nodeMaria = require('node-mariadb');
-require('dotenv').config();
+var config = require('dotenv').config();
 
 //hs readable configuration.
 var connection = nodeMaria.createConnection({
