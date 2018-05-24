@@ -14,15 +14,28 @@ var connection = nodeMaria.createConnection({
 });
 
 connection.on('error', function(error){
-  console.log(error);
+  console.log('connection error --> ' + error);
   process.exit(1);
 });
 
 connection.on('connect', function(){
-  connection.openIndex('memfee', 'mfuser', nodeMaria.HandlerSocket.PRIMARY, ['_uid', '_uname', '_uemail']
-  , function(err, hs){
-    hs.find([1], {limit:1},function(err, data){
-      console.log(data);
+  console.log('db connected...');
+  connection.query('')
+    .on('result', function(res){
+      res.on('row', function(row){
+        console.log('result row -->' + row);
+      })
+    })
+    .on('error', function(err){
+      console.log('select error -->' + err);
+    })
+    .on('end', function(info){
+      console.log('result finished successfully');
     });
-  });
+  // connection.openIndex('memfee', 'mfuser', nodeMaria.HandlerSocket.PRIMARY, ['_uid', '_uname', '_uemail']
+  // , function(err, hs){
+  //   hs.find([1], {limit:1},function(err, data){
+  //     console.log(data);
+  //   });
+  // });
 });
