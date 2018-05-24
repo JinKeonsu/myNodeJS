@@ -1,7 +1,7 @@
 var nodeMaria = require('node-mariadb');
 require('dotenv').config();
 
-console.log(process.env);
+console.log(process.env.DB_PASS);
 
 //hs readable configuration.
 var connection = nodeMaria.createConnection({
